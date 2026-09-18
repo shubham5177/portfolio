@@ -1,11 +1,11 @@
 # Shubham Madane - Personal Portfolio Website
 
-A fully responsive personal portfolio website for Shubham Madane, SPPU Student and Web Developer. Built with Next.js 15, React, TypeScript, and Supabase authentication.
+A responsive Next.js portfolio with Better Auth, a protected dashboard, contact form storage, and a Turso/libSQL database. It is ready to deploy as a standard Vercel project.
 
 ## 🌟 Features
 
 - **Modern UI/UX**: Clean, responsive design with dark/light theme toggle
-- **Authentication System**: Complete sign-up and sign-in functionality with Supabase
+- **Authentication System**: Complete sign-up and sign-in functionality with Better Auth
 - **Protected Dashboard**: Access project portfolio after authentication
 - **30+ Projects**: Showcase of GitHub repositories
 - **Profile Management**: View user profile and account information
@@ -24,8 +24,8 @@ A fully responsive personal portfolio website for Shubham Madane, SPPU Student a
 - **Lucide React** - Icons
 
 ### Backend & Authentication
-- **Supabase** - Backend as a Service (BaaS)
-- **Supabase Auth** - User authentication
+- **Better Auth** - Email/password authentication and sessions
+- **Turso/libSQL** - Serverless SQLite-compatible database
 - **Next.js API Routes** - Server-side API endpoints
 
 ## 📋 Prerequisites
@@ -33,7 +33,7 @@ A fully responsive personal portfolio website for Shubham Madane, SPPU Student a
 Before you begin, ensure you have:
 
 - Node.js 18+ or Bun installed
-- A Supabase account (free tier works fine)
+- A Turso database (the free tier is sufficient for development)
 - Git
 
 ## 🚀 Getting Started
@@ -53,47 +53,23 @@ npm install
 bun install
 ```
 
-### 3. Set Up Supabase
+### 3. Environment Variables
 
-1. **Create a Supabase Project**
-   - Go to [Supabase](https://supabase.com)
-   - Click "New Project"
-   - Fill in project details (name, database password, region)
-   - Wait for the project to be set up
-
-2. **Get Your Supabase Credentials**
-   - In your Supabase project dashboard
-   - Go to **Settings** → **API**
-   - Copy your:
-     - Project URL
-     - Anon (public) key
-
-3. **Configure Authentication**
-   - In Supabase dashboard, go to **Authentication** → **Providers**
-   - Enable **Email** provider (should be enabled by default)
-   - Configure your site URL:
-     - Go to **Authentication** → **URL Configuration**
-     - Add your site URLs (e.g., `http://localhost:3000` for development)
-     - Add redirect URLs (e.g., `http://localhost:3000/dashboard`)
-
-### 4. Environment Variables
-
-Create a `.env.local` file in the root directory:
+Copy `.env.local.example` to `.env.local` and set:
 
 ```bash
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+TURSO_CONNECTION_URL=libsql://your-database.turso.io
+TURSO_AUTH_TOKEN=your_turso_auth_token
+BETTER_AUTH_URL=http://localhost:3000
+BETTER_AUTH_SECRET=replace_with_a_random_32_character_secret
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ```
 
 Replace the values with your actual Supabase credentials from step 3.
 
-**Example:**
-```bash
-NEXT_PUBLIC_SUPABASE_URL=https://abcdefghijklmnop.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
-```
+Generate a secret with `openssl rand -base64 32` or any password manager. Never commit `.env.local`.
 
-### 5. Run the Development Server
+### 4. Run the Development Server
 
 ```bash
 npm run dev
@@ -102,6 +78,16 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Deploy to Vercel
+
+1. Push the repository to GitHub and import it into [Vercel](https://vercel.com/new).
+2. Keep the framework preset as **Next.js**. The default build command is `npm run build`.
+3. Add `TURSO_CONNECTION_URL`, `TURSO_AUTH_TOKEN`, `BETTER_AUTH_SECRET`, `BETTER_AUTH_URL`, and `NEXT_PUBLIC_SITE_URL` in Vercel project settings.
+4. Set the URL variables to the deployed HTTPS URL, then redeploy.
+5. Run `npm run db:push` with the production Turso variables before using sign-up or the contact form.
+
+The Vercel runtime provides the API routes automatically; no custom server or `vercel.json` is required.
 
 ## 📁 Project Structure
 
