@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Reveal from "@/components/Reveal";
 
 export const dynamic = "force-dynamic";
 
@@ -29,7 +30,7 @@ export default function About() {
     <>
       <section className="relative overflow-hidden">
         <div className="glow pointer-events-none absolute inset-0" />
-        <div className="container-x relative grid items-center gap-14 py-24 lg:grid-cols-2">
+        <div className="container-x relative grid items-center gap-12 py-16 sm:gap-14 sm:py-24 lg:grid-cols-2">
           <div className="max-w-4xl">
             <p className="text-sm font-semibold text-brand-soft">The Person Behind the Code</p>
             <h1 className="mt-3 text-4xl font-black leading-tight text-white sm:text-6xl">
@@ -42,9 +43,9 @@ export default function About() {
               <a href="/cv.pdf" download className="btn-primary">Download CV</a>
               <Link href="/contact" className="btn-ghost">Work with Me</Link>
             </div>
-            <div className="mt-10 grid grid-cols-3 gap-4">
+            <div className="mt-8 grid gap-3 sm:mt-10 sm:grid-cols-3 sm:gap-4">
               {[["20+ Repos", "Open Source"], ["99% Score", "Optimization"], ["UI/UX", "Design Driven"]].map(([a, b]) => (
-                <div key={a} className="card !p-5">
+                <div key={a} className="card !p-4 sm:!p-5">
                   <p className="font-black text-white">{a}</p>
                   <p className="mt-1 text-xs text-slate-500">{b}</p>
                 </div>
@@ -65,58 +66,62 @@ export default function About() {
         </div>
       </section>
 
-      <section className="container-x grid gap-8 py-20 md:grid-cols-2">
+      <section className="container-x grid gap-6 py-14 sm:gap-8 sm:py-20 md:grid-cols-2">
         <div>
           <h2 className="mb-6 text-2xl font-black text-white">Academic Journey</h2>
-          <div className="card">
+          <Reveal><div className="card">
             <h3 className="text-xl font-bold text-white">Bachelor of Engineering</h3>
             <p className="mt-1 text-brand-soft">Savitribai Phule Pune University (SPPU)</p>
             <p className="mt-1 text-sm text-slate-500">2024 - 2028 (Expected Graduation)</p>
             <p className="mt-2 text-sm font-semibold text-brand-soft">{academicStage} · {currentYear}</p>
             <p className="mt-4 text-slate-400">Focusing on Computer Science with an emphasis on Advanced Web Architecture and Software Engineering. Actively participating in tech symposiums and hackathons.</p>
-          </div>
+          </div></Reveal>
         </div>
         <div>
           <h2 className="mb-6 text-2xl font-black text-white">Professional Path</h2>
-          <div className="card">
+          <Reveal><div className="card">
             <h3 className="text-xl font-bold text-white">Full-Stack Developer</h3>
             <p className="mt-1 text-brand-soft">Independent Consultant</p>
             <p className="mt-1 text-sm text-slate-500">Ongoing</p>
             <p className="mt-4 text-slate-400">Helping startups and businesses build modern web applications using the Next.js ecosystem. Delivering high-performance solutions with clean, maintainable codebases.</p>
-          </div>
+          </div></Reveal>
         </div>
       </section>
 
-      <section className="container-x py-20">
+      <section className="container-x py-14 sm:py-20">
         <p className="text-sm font-semibold text-brand-soft">Expertise</p>
         <h2 className="mt-3 text-4xl font-black text-white">My Tech DNA.</h2>
         <p className="mt-4 max-w-2xl text-slate-400">I specialize in the modern web ecosystem, focusing on performance, scalability, and developer experience.</p>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {stack.map((s) => (
-            <div key={s.title} className="card !p-6">
-              <h3 className="font-bold text-white">{s.title}</h3>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {s.items.map((i) => (
-                  <span key={i} className="rounded-full border border-line bg-ink px-3 py-1 text-xs font-medium text-slate-300">{i}</span>
-                ))}
+            <Reveal key={s.title} className="h-full">
+              <div className="card h-full !p-5 sm:!p-6">
+                <h3 className="font-bold text-white">{s.title}</h3>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {s.items.map((i) => (
+                    <span key={i} className="rounded-full border border-line bg-ink px-3 py-1 text-xs font-medium text-slate-300">{i}</span>
+                  ))}
+                </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>
 
-      <section className="container-x py-20">
-        <div className="relative overflow-hidden rounded-[2.5rem] border border-line bg-panel px-8 py-20 text-center">
-          <div className="glow pointer-events-none absolute inset-0" />
-          <h2 className="relative text-4xl font-black text-white">Ready to create something <span className="grad-text">Extraordinary?</span></h2>
-          <p className="relative mx-auto mt-4 max-w-xl text-slate-400">
-            I'm always open to new challenges and collaborations. Whether you have a project in mind or just want to talk tech, my inbox is always open.
-          </p>
-          <div className="relative mt-8 flex flex-wrap justify-center gap-4">
-            <Link href="/contact" className="btn-primary">Let's Connect</Link>
-            <Link href="/" className="btn-ghost">Back to Home</Link>
+      <section className="container-x py-14 sm:py-20">
+        <Reveal>
+          <div className="relative overflow-hidden rounded-[2.5rem] border border-line bg-panel px-5 py-14 text-center sm:px-8 sm:py-20">
+            <div className="glow pointer-events-none absolute inset-0" />
+            <h2 className="relative text-4xl font-black text-white">Ready to create something <span className="grad-text">Extraordinary?</span></h2>
+            <p className="relative mx-auto mt-4 max-w-xl text-slate-400">
+              I&apos;m always open to new challenges and collaborations. Whether you have a project in mind or just want to talk tech, my inbox is always open.
+            </p>
+            <div className="relative mt-8 flex flex-wrap justify-center gap-4">
+              <Link href="/contact" className="btn-primary">Let&apos;s Connect</Link>
+              <Link href="/" className="btn-ghost">Back to Home</Link>
+            </div>
           </div>
-        </div>
+        </Reveal>
       </section>
       <p className="container-x pb-12 pt-6 text-xs font-semibold tracking-widest text-slate-600">© {new Date().getFullYear()} SHUBHAM MADANE • DESIGNED FOR THE FUTURE</p>
     </>

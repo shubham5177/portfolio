@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Footer from "@/components/Footer";
+import Reveal from "@/components/Reveal";
 
 const certificates = [
   { title: "Adobe Hackathon", file: "adobe_hackathon_certificate.pdf" },
@@ -56,7 +57,7 @@ function getPreviewUrl(file: string, href: string) {
 export default function Certificates() {
   return (
     <>
-      <section className="container-x py-20">
+      <section className="container-x py-14 sm:py-20">
         <p className="text-sm font-semibold text-brand-soft">Milestones & Recognition</p>
         <h1 className="mt-3 text-4xl font-black text-white sm:text-5xl">Certificates & Achievements</h1>
         <p className="mt-4 max-w-2xl text-slate-400">
@@ -69,7 +70,8 @@ export default function Certificates() {
             const isPdf = /\.pdf$/i.test(certificate.file);
 
             return (
-              <article key={certificate.file} className="card !p-4">
+              <Reveal key={certificate.file} className="h-full">
+              <article className="card flex h-full flex-col !p-4">
                 <a
                   href={href}
                   target="_blank"
@@ -106,6 +108,7 @@ export default function Certificates() {
                   </a>
                 </div>
               </article>
+              </Reveal>
             );
           })}
         </div>

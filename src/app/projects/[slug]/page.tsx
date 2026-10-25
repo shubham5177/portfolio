@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects } from "@/data/projects";
+import Reveal from "@/components/Reveal";
 
 type ProjectPageProps = {
   params: { slug: string };
@@ -31,7 +32,7 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
     <>
       <section className="relative overflow-hidden">
         <div className="glow pointer-events-none absolute inset-0" />
-        <div className="container-x relative py-20">
+        <div className="container-x relative py-14 sm:py-20">
           <Link href="/projects" className="text-sm font-medium text-brand-soft transition hover:text-white">
             ← All projects
           </Link>
@@ -42,7 +43,7 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
               </span>
             ))}
           </div>
-          <h1 className="mt-5 max-w-4xl text-4xl font-black leading-tight text-white sm:text-6xl">{project.name}</h1>
+          <h1 className="mt-5 max-w-4xl text-3xl font-black leading-tight text-white sm:text-6xl">{project.name}</h1>
           <p className="mt-5 max-w-3xl text-lg text-slate-400">{project.tagline}</p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a href={project.repository} target="_blank" rel="noreferrer" className="btn-primary">
@@ -55,15 +56,15 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
 
       <section className="container-x grid gap-6 pb-24 lg:grid-cols-[minmax(0,2fr)_minmax(16rem,1fr)]">
         <div className="space-y-6">
-          <article className="card">
+          <Reveal><article className="card">
             <h2 className="text-2xl font-bold text-white">Problem statement</h2>
             <p className="mt-4 leading-7 text-slate-400">{project.problem}</p>
-          </article>
-          <article className="card">
+          </article></Reveal>
+          <Reveal><article className="card">
             <h2 className="text-2xl font-bold text-white">Solution</h2>
             <p className="mt-4 leading-7 text-slate-400">{project.solution}</p>
-          </article>
-          <article className="card">
+          </article></Reveal>
+          <Reveal><article className="card">
             <h2 className="text-2xl font-bold text-white">Key features</h2>
             <ul className="mt-4 grid gap-3 sm:grid-cols-2">
               {project.features.map((feature) => (
@@ -73,19 +74,19 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                 </li>
               ))}
             </ul>
-          </article>
-          <article className="card">
+          </article></Reveal>
+          <Reveal><article className="card">
             <h2 className="text-2xl font-bold text-white">Expected outcome</h2>
             <p className="mt-4 leading-7 text-slate-400">{project.outcome}</p>
-          </article>
+          </article></Reveal>
           {project.verificationNote && (
-            <p className="rounded-2xl border border-line bg-panel/60 p-5 text-sm leading-6 text-slate-500">
+            <Reveal><p className="rounded-2xl border border-line bg-panel/60 p-5 text-sm leading-6 text-slate-500">
               {project.verificationNote}
-            </p>
+            </p></Reveal>
           )}
         </div>
 
-        <aside className="card h-fit !p-6">
+        <Reveal className="h-fit"><aside className="card h-fit !p-5 sm:!p-6">
           <h2 className="text-lg font-bold text-white">Project information</h2>
           <h3 className="mt-6 text-xs font-semibold uppercase tracking-wider text-slate-500">Programming languages</h3>
           <div className="mt-3 flex flex-wrap gap-2">
@@ -111,7 +112,7 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
           >
             Open source repository ↗
           </a>
-        </aside>
+        </aside></Reveal>
       </section>
     </>
   );

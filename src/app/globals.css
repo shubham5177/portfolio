@@ -3,19 +3,82 @@
 @tailwind components;
 @tailwind utilities;
 
-html { scroll-behavior: smooth; }
-body { @apply bg-ink text-slate-300 antialiased font-sans; }
+html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+body {
+  @apply bg-ink text-slate-300 antialiased font-sans;
+  overflow-x: hidden;
+}
+body::before {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 15% 15%, rgba(99, 102, 241, .12), transparent 42%),
+    radial-gradient(ellipse at 90% 45%, rgba(167, 139, 250, .08), transparent 36%),
+    linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+  background-size: auto, auto, 48px 48px, 48px 48px;
+  content: "";
+  mask-image: linear-gradient(to bottom, black, transparent 75%);
+  pointer-events: none;
+}
 ::selection { background: rgba(99, 102, 241, 0.4); color: #fff; }
 
 @layer components {
-  .container-x { @apply mx-auto w-full max-w-6xl px-6; }
+  .container-x { @apply mx-auto w-full max-w-6xl px-4 sm:px-6; }
   .btn-primary { @apply inline-flex items-center justify-center rounded-full bg-brand px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand/30 transition hover:bg-brand-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-glow; }
   .btn-ghost { @apply inline-flex items-center justify-center rounded-full border border-line bg-white/5 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-glow; }
-  .card { @apply rounded-3xl border border-line bg-panel p-8; }
-  .field { @apply w-full rounded-xl border border-line bg-ink px-4 py-3 text-sm text-white placeholder-slate-600 outline-none transition focus:border-brand; }
+  .card { @apply rounded-3xl border border-line bg-panel/90 p-5 shadow-lg shadow-black/10 transition duration-300 sm:p-8; }
+  .field { @apply w-full rounded-xl border border-line bg-ink px-4 py-3 text-sm text-white placeholder-slate-600 outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20; }
   .label { @apply mb-2 block text-sm font-medium text-slate-400; }
   .grad-text { @apply bg-gradient-to-r from-brand-soft via-brand-glow to-pink-400 bg-clip-text text-transparent; }
 }
 
-.glow { background: radial-gradient(60% 50% at 50% 0%, rgba(99,102,241,.22), transparent 70%); }
-@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(129, 140, 248, .3);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, .22);
+}
+.glow {
+  background: radial-gradient(60% 50% at 50% 0%, rgba(99,102,241,.22), transparent 70%);
+  animation: glow-drift 12s ease-in-out infinite alternate;
+}
+.reveal-ready:not(.is-visible) {
+  opacity: 0;
+  transform: translateY(22px);
+}
+.reveal-ready {
+  transition: opacity 650ms ease, transform 650ms cubic-bezier(.2,.7,.2,1);
+}
+.reveal-ready.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.profile-float { animation: profile-float 7s ease-in-out infinite; }
+.link-underline { text-decoration-color: transparent; text-underline-offset: 5px; transition: text-decoration-color 180ms ease; }
+.link-underline:hover { text-decoration-line: underline; text-decoration-color: currentColor; }
+
+@keyframes glow-drift {
+  from { transform: scale(1); opacity: .7; }
+  to { transform: scale(1.12); opacity: 1; }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes profile-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@media (max-width: 640px) {
+  .card:hover { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}

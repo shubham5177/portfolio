@@ -1,11 +1,12 @@
 import ContactForm from "@/components/ContactForm";
+import Reveal from "@/components/Reveal";
 
 export default function Contact() {
   return (
     <>
       <section className="relative overflow-hidden">
         <div className="glow pointer-events-none absolute inset-0" />
-        <div className="container-x relative grid gap-14 py-24 lg:grid-cols-2">
+        <div className="container-x relative grid gap-10 py-14 sm:gap-14 sm:py-24 lg:grid-cols-2">
           <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-line bg-panel px-4 py-2 text-sm font-medium text-slate-300">
               <span className="h-2 w-2 rounded-full bg-emerald-400" /> Available for New Opportunities
@@ -30,7 +31,7 @@ export default function Contact() {
               <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="btn-ghost !px-5 !py-2.5">LinkedIn</a>
             </div>
           </div>
-          <ContactForm />
+          <Reveal><ContactForm /></Reveal>
         </div>
       </section>
       <p className="container-x pb-12 text-xs font-semibold tracking-widest text-slate-600">© {new Date().getFullYear()} SHUBHAM MADANE • ENVISIONING THE FUTURE</p>
