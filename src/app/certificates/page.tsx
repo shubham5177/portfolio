@@ -24,6 +24,7 @@ const certificates = [
   { title: "HackDay", file: "hackday certificate.jpeg" },
   { title: "HackerRank Java Basic", file: "hackerrank java basic.png" },
   { title: "HTML Spoken Tutorial", file: "Html spoken tutorial.pdf" },
+  { title: "VORTEX 2K26 Global AI Innovation Hackathon", file: "Innovation-Hacks-Certificate.pdf" },
   { title: "Java", file: "JAVA.jpg" },
   { title: "HackerRank JavaScript", file: "javascript hackerrank certificate.png" },
   { title: "LeetCode 1st Badge", file: "leetcode 1st badge.png" },

@@ -1,7 +1,10 @@
 # Shubham Madane – Portfolio (Next.js full-stack)
 
-Pages: Home, About, Contact, Dashboard (protected), Sign In, Sign Up.
+Pages: Home, About, Projects, Contact, Dashboard (protected), Sign In, Sign Up.
 Backend: Next.js API routes + Turso (libSQL) + JWT cookie auth (jose, bcryptjs).
+
+## Projects
+Project information is maintained in [`src/data/projects.ts`](./src/data/projects.ts). Update an existing project there or add another entry to the `projects` array with a unique URL-safe `slug`, name, summary, languages, technologies, repository URL, problem, solution, features, and outcome. The `/projects` listing and each `/projects/[slug]` detail page are generated from this data at build time.
 
 ## Run locally
 ```bash
