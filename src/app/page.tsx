@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 
@@ -39,13 +40,16 @@ export default function Home() {
               <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-white">LinkedIn</a>
             </div>
           </div>
-          <div
-            role="img"
-            aria-label="SM monogram"
-            className="relative mx-auto flex aspect-square w-full max-w-sm items-center justify-center rounded-full border border-brand/40 bg-gradient-to-br from-brand/20 via-panel to-pink-500/10 shadow-[0_0_80px_rgba(99,102,241,0.2)]"
-          >
+          <div className="relative mx-auto aspect-square w-full max-w-sm overflow-hidden rounded-full border border-brand/40 bg-gradient-to-br from-brand/20 via-panel to-pink-500/10 shadow-[0_0_80px_rgba(99,102,241,0.2)]">
             <div className="absolute inset-4 rounded-full border border-white/10" />
-            <span className="grad-text text-8xl font-black sm:text-9xl">SM</span>
+            <Image
+              src="/profile.png"
+              alt="Shubham Madane"
+              width={640}
+              height={640}
+              priority
+              className="h-full w-full object-cover"
+            />
           </div>
         </div>
       </section>
