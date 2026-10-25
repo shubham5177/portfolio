@@ -78,6 +78,11 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
             <h2 className="text-2xl font-bold text-white">Expected outcome</h2>
             <p className="mt-4 leading-7 text-slate-400">{project.outcome}</p>
           </article>
+          {project.verificationNote && (
+            <p className="rounded-2xl border border-line bg-panel/60 p-5 text-sm leading-6 text-slate-500">
+              {project.verificationNote}
+            </p>
+          )}
         </div>
 
         <aside className="card h-fit !p-6">
