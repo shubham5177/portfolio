@@ -71,7 +71,7 @@ export default function About() {
           <div className="card">
             <h3 className="text-xl font-bold text-white">Bachelor of Engineering</h3>
             <p className="mt-1 text-brand-soft">Savitribai Phule Pune University (SPPU)</p>
-            <p className="mt-1 text-sm text-slate-500">2023 - 2028 (Expected Graduation)</p>
+            <p className="mt-1 text-sm text-slate-500">2024 - 2028 (Expected Graduation)</p>
             <p className="mt-2 text-sm font-semibold text-brand-soft">{academicStage} · {currentYear}</p>
             <p className="mt-4 text-slate-400">Focusing on Computer Science with an emphasis on Advanced Web Architecture and Software Engineering. Actively participating in tech symposiums and hackathons.</p>
           </div>
