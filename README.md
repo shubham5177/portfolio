@@ -30,6 +30,8 @@ Run [`database/turso-schema.sql`](./database/turso-schema.sql) once in the Turso
    - `ADMIN_EMAIL` — the email address that should see all contact messages
 5. Deploy or redeploy so the new environment variables are applied. Vercel uses the standard Next.js build command (`npm run build`).
 
+After the GitHub repository is connected to the Vercel project, each push to `main` triggers a Production deployment. Environment-variable values are managed separately in Vercel Project Settings; changing or pushing code does not update those values. Redeploy after changing a variable.
+
 The app requires Turso credentials in production and will not silently use a temporary local database. Do not put credentials in source code or expose them with a `NEXT_PUBLIC_` prefix.
 
 Put your resume at `public/cv.pdf` so the "Download CV" button works.
