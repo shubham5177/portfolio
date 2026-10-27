@@ -12,12 +12,14 @@ npm install
 npm run dev
 ```
 
-Copy `.env.example` to `.env`. To connect to Turso, uncomment and set `TURSO_DATABASE_URL` and `TURSO_AUTH_TOKEN` using a newly generated Turso token. Never commit `.env` or share the Turso token. Without the Turso variables, local development uses the existing `prisma/dev.db`.
+Copy `.env.example` to `.env`. To connect to Turso, uncomment and set `TURSO_DATABASE_URL` and `TURSO_AUTH_TOKEN` using a newly generated Turso token. Set `RESEND_API_KEY` and `CONTACT_FROM_EMAIL` to a Resend API key and a sender address verified with Resend to send confirmation emails for contact submissions. Never commit `.env` or share credentials. Without the Turso variables, local development uses the existing `prisma/dev.db`.
 
 Run [`database/turso-schema.sql`](./database/turso-schema.sql) once in the Turso SQL console to create the required tables.
 
 ## API
 - POST /api/contact { name, email, subject, message }
+
+The contact API checks the email format, saves the message, then sends a confirmation email using Resend. If confirmation delivery is unavailable, the message remains saved and the form confirms that status.
 
 ## Deploy to Vercel
 1. In Turso, open the `portfolio-shubham5177` database and run [`database/turso-schema.sql`](./database/turso-schema.sql) in its SQL console. This creates the `Message` table; it does not add sample rows.
@@ -26,6 +28,8 @@ Run [`database/turso-schema.sql`](./database/turso-schema.sql) once in the Turso
 4. In **Project Settings → Environment Variables**, add these for Production (and Preview too, if you deploy previews):
    - `TURSO_DATABASE_URL` — `libsql://portfolio-shubham5177.aws-ap-south-1.turso.io`
    - `TURSO_AUTH_TOKEN` — the newly generated Turso token (keep it secret)
+   - `RESEND_API_KEY` — a Resend API key (keep it secret)
+   - `CONTACT_FROM_EMAIL` — a sender address verified with Resend, such as `Shubham Madane <contact@your-domain.com>`
 5. Deploy or redeploy so the new environment variables are applied. Vercel uses the standard Next.js build command (`npm run build`).
 
 After the GitHub repository is connected to the Vercel project, each push to `main` triggers a Production deployment. Environment-variable values are managed separately in Vercel Project Settings; changing or pushing code does not update those values. Redeploy after changing a variable.
