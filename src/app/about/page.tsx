@@ -9,6 +9,7 @@ const stack = [
   { title: "Frontend", items: ["HTML5/CSS3", "Responsive Design", "DOM Manipulation", "Bootstrap"] },
   { title: "Backend", items: ["Firebase", "Python Flask", "Supabase", "REST APIs"] },
   { title: "Database", items: ["MySQL/SQL", "Firestore", "MongoDB", "SQLite"] },
+  { title: "Data Analysis", items: ["ipykernel", "NumPy", "pandas", "Matplotlib", "Seaborn"] },
   { title: "Tools", items: ["Git & GitHub", "VS Code", "XAMPP", "Postman"] },
   { title: "Soft Skills", items: ["Problem Solving", "Analytical Thinking", "Team Collaboration", "Communication", "Time Management", "Quick Learner"] },
 ];
