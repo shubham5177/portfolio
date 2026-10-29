@@ -15,6 +15,47 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "medibot",
+    name: "MediBot — Dataset-Powered Healthcare Information Chatbot",
+    tagline:
+      "A healthcare information chatbot that matches questions to a structured dataset and applies safety checks before answering.",
+    categories: ["Healthcare technology", "Natural language processing", "Full-stack development"],
+    languages: ["TypeScript", "JavaScript", "SQL"],
+    technologies: [
+      "React 19",
+      "Next.js 15",
+      "Tailwind CSS 3",
+      "TF-IDF",
+      "Cosine similarity",
+      "CSV and JSON",
+      "Turso / libSQL",
+      "SQLite",
+      "Node.js test runner",
+      "Vercel",
+    ],
+    repository: "https://github.com/shubham5177/Medibot",
+    problem:
+      "People need accessible, understandable information about common health topics, but general-purpose chatbots can produce inaccurate answers. Healthcare information needs transparent sources and safety safeguards.",
+    solution:
+      "MediBot matches user questions against a structured healthcare dataset using TF-IDF, cosine similarity, synonyms, and a configurable confidence threshold. A separate safety module checks for emergency wording, self-harm concerns, and medication-dosing or prescribing requests before normal matching. An optional OpenAI fallback can handle questions that do not match the dataset.",
+    features: [
+      "Dataset-powered healthcare question answering with suggested prompts and topic browsing",
+      "TF-IDF and cosine-similarity matching with synonyms and a configurable confidence threshold",
+      "Emergency keyword detection and safety responses",
+      "Refusal of medication-dosing and prescribing requests",
+      "Source references for healthcare answers",
+      "Recent chats, search, copy, feedback, and optional local chat-history saving",
+      "Responsive interface with light and dark themes",
+      "Optional OpenAI fallback and Turso / libSQL storage for dataset data and anonymous feedback",
+      "Automated tests for matching, data validation, safety rules, and API validation",
+      "Primary CSV dataset specified as 2,000 entries, with a 40-entry original JSON sample",
+    ],
+    outcome:
+      "Provide an educational healthcare information chatbot that prioritizes structured dataset answers, transparent sources, and safety checks without requiring an external AI API for its primary functionality.",
+    verificationNote:
+      "The healthcare dataset is unreviewed and not clinically validated; its sources and claims must be checked by qualified reviewers before real-world use. MediBot is not for diagnosis, treatment decisions, prescriptions, or medication dosing. Emergency keyword detection can miss emergencies or trigger unnecessarily and must never be used to rule out an emergency.",
+  },
+  {
     slug: "edupath",
     name: "EduPath — Adaptive Career Intelligence",
     tagline: "An AI-powered career coach that helps learners plan and track their path toward a target role.",

@@ -13,7 +13,7 @@ export default function ProjectsPage() {
             Projects<span className="grad-text">.</span>
           </h1>
           <p className="mt-5 max-w-2xl text-lg text-slate-400">
-            A selection of projects exploring AI, computer vision, career guidance, and web development.
+            A selection of projects exploring healthcare technology, AI, computer vision, career guidance, and web development.
           </p>
         </div>
       </section>
