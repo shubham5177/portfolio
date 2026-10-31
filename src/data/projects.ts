@@ -78,6 +78,50 @@ export const projects: Project[] = [
     outcome: "Help learners follow a structured, personalized path toward their career goals.",
   },
   {
+    slug: "career-pivot",
+    name: "CareerPivot AI — Intelligent Career Transition and Job Readiness Coach",
+    tagline:
+      "A career coaching platform that analyzes resumes, finds skill gaps, builds learning roadmaps, and helps users prepare for job applications.",
+    categories: ["Artificial intelligence", "Machine learning", "Career guidance", "Full-stack development"],
+    languages: ["TypeScript", "JavaScript", "Python 3.12", "SQL"],
+    technologies: [
+      "Next.js 14",
+      "React 18",
+      "Tailwind CSS",
+      "FastAPI",
+      "Scikit-learn",
+      "TF-IDF and cosine similarity",
+      "Pandas and NumPy",
+      "Joblib",
+      "PyMuPDF and python-docx",
+      "SQLite / Turso",
+      "Recharts",
+      "Vercel",
+    ],
+    repository: "https://github.com/shubham5177/CareerPivot",
+    problem:
+      "Students and working professionals often lack a clear view of their current skills, the competencies required for target roles, suitable learning resources, and their interview readiness. Career guidance tools may not bring these steps together in one personalized transition plan.",
+    solution:
+      "CareerPivot AI combines a Next.js frontend, FastAPI backend, and locally trained scikit-learn pipelines. It parses resumes, categorizes skills, matches candidates to job roles, identifies gaps, and turns them into a tracked learning and application plan. Its core functionality does not require paid AI APIs; optional Turso persistence supports deployment.",
+    features: [
+      "Parse PDF and DOCX resumes or analyze pasted resume text",
+      "Explore nine technology career pathways or define a custom role",
+      "Compare candidate skills with role requirements using a skill-gap matrix",
+      "Follow an adaptive eight-week roadmap with tasks, projects, and progress tracking",
+      "Get portfolio project recommendations based on pathways and skill gaps",
+      "Practice in a mock interview arena with feedback on concepts, relevance, and clarity",
+      "Track applications through Wishlist, Applied, Screening, Technical, Final, and Offer",
+      "Monitor career progress and application analytics in a dashboard",
+      "Categorize resume skills into eight domains with TF-IDF and logistic regression",
+      "Rank job matches using 25% TF-IDF cosine similarity and 75% weighted skill overlap",
+      "Evaluate interview answers with a TF-IDF and logistic-regression classifier",
+    ],
+    outcome:
+      "Provide a centralized career transition workflow that helps users understand their current abilities, identify target-role skills, prepare for interviews, and track progress toward employment.",
+    verificationNote:
+      "The repository reports limited model generalization: the skill classifier achieved 32.41% grouped holdout accuracy, and the interview evaluator achieved 0% grouped cross-validation accuracy on its current small dataset. Job-matching calibration used only eight synthetic examples and is not independently validated. These models need further training and real-world evaluation; their scores should not be treated as reliable hiring or readiness decisions.",
+  },
+  {
     slug: "ai-exam-proctoring-system",
     name: "AI-Based Exam Proctoring System",
     tagline: "A computer-vision monitoring tool that helps invigilators review potential exam incidents.",

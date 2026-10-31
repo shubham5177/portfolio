@@ -4,7 +4,7 @@ import Reveal from "@/components/Reveal";
 
 const certificates = [
   { title: "Adobe Hackathon", file: "adobe_hackathon_certificate.pdf" },
-  { title: "Agentic AI", file: "agentic ai certificate.pdf" },
+  { title: "Agentic AI", file: "Agentic Ai Certificate.png" },
   { title: "Aptus Technology", file: "Aptus Technology.pdf" },
   {
     title: "AWS Academy Graduate - Cloud Foundations",
