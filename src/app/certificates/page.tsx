@@ -11,6 +11,10 @@ const certificates = [
     file: "AWS_Academy_Graduate___Cloud_Foundations___Training_Badge_Badge20260921-21-35okej.pdf",
   },
   { title: "C Language", file: "C Language.pdf" },
+  {
+    title: "Catalyst Hackethon Certificate of Participation",
+    file: "Catalyst Hackethon Certificate of Participation.png",
+  },
   { title: "CEP", file: "CEP.pdf" },
   { title: "CodeArena", file: "CodeArena.pdf" },
   { title: "CodeChef Badge", file: "CodeChefBadge.png" },
